@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传头像</title>
+	<style type="text/css">
+	.box a{
+		position: relative;
+	}
+		input[type="submit"] {
+		    box-sizing: border-box;
+		    text-align: center;
+		    font-size: 15px;
+		    height: 3em;
+		    border-radius: 4px;
+		    -web-kit-appearance: none;
+		    -moz-appearance: none;
+		    display: inline-block;
+		    padding: 0 1em;
+		    text-decoration: none;
+		    width: 200px;
+		    color: white;
+		    background-color: #25C6FFFF;
+		    border: none;
+		}
+		input[type="button"] {
+		    box-sizing: border-box;
+		    text-align: center;
+		    font-size: 15px;
+		    height: 3em;
+		    border-radius: 4px;
+		    -web-kit-appearance: none;
+		    -moz-appearance: none;
+		    display: inline-block;
+		    padding: 0 1em;
+		    text-decoration: none;
+		    width: 200px;
+		    color: white;
+		    background-color: #25C6FFFF;
+		    border: none;
+		}
+		.button{
+			margin: 10px;
+		}
+		#button1{
+			position: relative;
+		}
+		#button1:hover{
+			background-color: lightgray!important;
+		}
+		input[type="file"]{
+			position: absolute;
+			top: 165px;
+			left: 18px;
+			height: 3em;
+			width: 200px;
+			opacity: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		function alterButtonValue(obj){
+			var btn=obj.previousElementSibling;
+			btn.innerText=obj.files[0].name;
+		}
+		function alterButtionBgColor(obj){
+			var btn=obj.previousElementSibling;
+			btn.classList.add("my-button-hover");
+		}
+		function alterButtonBgColor2(obj){
+			var btn=obj.previousElementSibling;
+			btn.classList.remove("my-button-hover");
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<form name="form1" action="upload.php" method="post" enctype="multipart/form-data">
+			<table>
+					<tr>
+						<td><img src="function/captcha.php" onclick="this.src='function/captcha.php?'+Math.random()"></td>
+					</tr>
+					<tr>
+						<td><span>验证码：</span><input type="text" name="captcha"></td>
+					</tr>
+			</table>
+			<!-- <input type="path" name="path" readonly="true" multiple="multiple"> -->
+				<input type="button" name="button" value="选择图片" class="button" id="button1">
+				<input type="file" name="file" onchange="alterButtonValue(this)" onmouseout="alterButtonBgColor2(this)" accept="image/*">
+			<br/>
+			<input type="submit" name="submit" value="确认上传" class="button">
+		</form>
+	</div>
+</body>
+</html>
