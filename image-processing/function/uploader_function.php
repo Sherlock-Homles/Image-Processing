@@ -1,11 +1,10 @@
 <?php
-
 /*
  *文件上传
- *@param1 array￥file，上传文件从$_FIELS里面取出上传文件信息：包含5个元素
+ *@param1 array  $file，上传文件从$_FIELS里面取出上传文件信息：包含5个元素
  *@param2 string $path,存储路径
  *@param3 string &$error
- *@return string上传后对应的文件名
+ *@return string $filename,上传后对应的文件名
  */
 function uploader($file, $path, &$error)
 {
